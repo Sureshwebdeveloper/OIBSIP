@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     name: {
       type: String,
       required: true,
@@ -14,9 +15,18 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      default: "user",
+    },
+    verified: {
+      type: Boolean,
+      default: false,
+    },
     cartData: {
       type: Object,
-      default: {}},
+      default: {},
+    },
   },
   { minimize: false }
 );
